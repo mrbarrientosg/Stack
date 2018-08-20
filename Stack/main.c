@@ -49,7 +49,7 @@ int main() {
     }
     
     // Se libera memoria del stack.
-    //free(test);
+    free(test);
     
     return 0;
 }
