@@ -1,6 +1,6 @@
 # Stack
 
-Tipo de dato abstracto para uso educativo o personal. Esta librería cuenta con todas las funciones principales de una pila como lo seria **push**, **pop** y **top**. La implementación de la pila fue hecha con una lista enlazad simple.
+La librería cuenta con todas las funciones principales de una pila como lo seria **push**, **pop** y **top**. La implementación de la pila fue hecha con una lista enlazada simple.
 
 ## Instalación
 
