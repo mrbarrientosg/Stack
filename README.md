@@ -14,7 +14,7 @@ Pueden usar cualquier IDE, y deben agregar los archivos Stack.h y Stack.c a su p
 
 ## Ejemplo
 
-```
+```C
 #include <stdio.h>
 #include <stdlib.h>
 #include "Stack.h"
