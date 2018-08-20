@@ -4,11 +4,11 @@ Tipo de dato abstracto para uso educativo o personal. Esta librería cuenta con 
 
 ## Instalación
 
-OS X:
+### OS X:
 
 Deben tener instalado Xcode para poder compilar el archivo .xcodeproj
 
-Windows y Linux:
+### Windows y Linux:
 
 Pueden usar cualquier IDE, y deben agregar los archivos Stack.h y Stack.c a su proyecto.
 
