@@ -54,4 +54,4 @@ int main() {
 
 ## Licencia
 
-Este proyecto esta bajo la licencia MIT - vea el archivo [LICENSE.md](LICENSE.md) para mas detalles.
+Este proyecto esta bajo la licencia MIT - vea el archivo [LICENSE.md](LICENSE.md) para más detalles.
