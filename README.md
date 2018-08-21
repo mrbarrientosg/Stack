@@ -1,6 +1,6 @@
 # Stack
 
-La librería cuenta con todas las funciones principales de una pila como lo seria **push**, **pop** y **top**. La implementación de la pila fue hecha con una lista enlazada simple.
+Tipo de dato abstracto implementado con una lista enlazada simple, en donde se pueden encontrar las principales funciones de una pila como lo seria **push**, **pop** y **top**. La implementación de la pila fue hecha con una lista enlazada simple.
 
 ## Instalación
 
