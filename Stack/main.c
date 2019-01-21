@@ -44,7 +44,7 @@ int main() {
         stack_push (test, data);
     }
     
-    while (stack_is_empty (test) == 0) {
+    while (stack_empty (test) == 0) {
         printf ("%d\n", *(int *) stack_top (test));
         stack_pop (test);
     }

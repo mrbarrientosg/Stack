@@ -93,7 +93,7 @@ extern long stack_size (stack *stack);
  @param stack Puntero al Stack.
  @return 1 (true) si y solo si el Stack no contiene elementos; 0 (false) lo contrario.
  */
-extern int stack_is_empty (stack *stack);
+extern int stack_empty (stack *stack);
 
 /**
  Elimina todo los elementos del stack, si se encuetra la funcion release

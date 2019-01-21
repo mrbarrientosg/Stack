@@ -121,7 +121,7 @@ stack_size (stack *stack) {
 }
 
 int
-stack_is_empty (stack *stack) {
+stack_empty (stack *stack) {
     assert (stack != NULL);
     
     return stack->count == 0;
