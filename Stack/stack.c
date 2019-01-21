@@ -88,12 +88,14 @@ stack_pop (stack *stack) {
     
     void *data = (void *) aux->data;
     
-    if (stack->release != NULL)
+    if (stack->release != NULL) {
         stack->release(data);
+        data = NULL;
+    }
     
     stack->head = stack->head->next;
     
-    free(aux);
+    free (aux);
     
     stack->count -= 1;
     
