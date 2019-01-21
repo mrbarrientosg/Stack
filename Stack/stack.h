@@ -22,75 +22,87 @@
  SOFTWARE.
  */
 
-#ifndef Stack_h
-#define Stack_h
+#ifndef stack_h
+#define stack_h
 
-typedef struct Stack Stack;
+typedef struct stack stack;
+
+/**
+ @typedef
+ Prototipo de funcion para eliminar de memoria el objeto que se guarda dentro del stack.
+ 
+ @param object Puntero al objecto guardado.
+ */
+typedef void (*stack_release_object_callback) (void *object);
 
 /**
  Crea un puntero de tipo Stack e inicializa sus variables.
-
+ 
  @return Puntero al nuevo Stack.
  */
-Stack * createStack(void);
+extern stack *stack_init (stack_release_object_callback release);
 
 /**
  Inserta un elemento en la parte superior del Stack.
  
  Complejidad: O(1)
-
+ 
  @param stack Puntero al Stack.
  @param data Puntero al dato que quiere ser insertado en el Stack.
  */
-void push(Stack * stack, const void * data);
+extern void stack_push (stack *stack, const void *data);
 
 /**
- Elimina el elemento en la parte superior del Stack y retorna el puntero del elemento eliminado.
+ Elimina el elemento en la parte superior del Stack,
+ si la funcion release esta activa, esta eliminara de la memoria
+ del puntero al dato guardado y retornara NULL,
+ en caso contrario retornara el puntero al dato.
  
  Complejidad: O(1)
-
+ 
  @param stack Puntero al Stack.
  @return Puntero al objeto en la parte superior del Stack.
  */
-void * pop(Stack * stack);
+extern void *stack_pop (stack *stack);
 
 /**
  Retorna el elemento de la parte superior del Stack sin eliminarlo del Stack.
  
  Complejidad: O(1)
-
+ 
  @param stack Puntero al Stack.
  @return Puntero al objeto en la parte superior del Stack.
  */
-void * top(Stack * stack);
+extern void *stack_top (stack *stack);
 
 /**
  Devuelve la cantidad de elementos en el Stack.
  
  Complejidad: O(1)
-
+ 
  @param stack Puntero al Stack.
  @return La cantitdad de elementos en el stack.
  */
-long stackCount(Stack * stack);
+extern long stack_size (stack *stack);
 
 /**
  Prueba si el Stack está vacía.
  
  Complejidad: O(1)
-
+ 
  @param stack Puntero al Stack.
  @return 1 (true) si y solo si el Stack no contiene elementos; 0 (false) lo contrario.
  */
-int emptyStack(Stack * stack);
+extern int stack_is_empty (stack *stack);
 
 /**
- Elimina todo los elementos del Stack, pero no los libera de la memoria.
+ Elimina todo los elementos del stack, si se encuetra la funcion release
+ activa, eliminara los datos de la memoria.
  
  Complejidad: O(n)
+ 
+ @param stack Puntero a puntero de Stack.
+ */
+extern void stack_release (stack **stack);
 
- @param stack Puntero al Stack.
-*/
-void removeAllStack(Stack * stack);
-
-#endif /* Stack_h */
+#endif /* stack_h */

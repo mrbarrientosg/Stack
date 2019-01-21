@@ -22,65 +22,74 @@
  SOFTWARE.
  */
 
-#include "Stack.h"
+#include "stack.h"
 #include <stdlib.h>
 #include <assert.h>
 
-typedef struct Node Node;
+typedef struct node node;
 
-struct Node {
-    const void * data;
-    Node * next;
+struct node {
+    const void *data;
+    node *next;
 };
 
-struct Stack {
-    Node * head;
+struct stack {
+    node *head;
     long count;
+    stack_release_object_callback release;
 };
 
-static Node * createNode(const void * data) {
-    Node * new = (Node *)malloc(sizeof(Node));
+static node *
+node_init (const void *data) {
+    node *new = (node *) malloc (sizeof (node));
     
-    assert(new != NULL);
-   
+    assert (new != NULL);
+    
     new->data = data;
     new->next = NULL;
     
     return new;
 }
 
-Stack * createStack() {
-    Stack * new = (Stack *)malloc(sizeof(Stack));
+stack *
+stack_init (stack_release_object_callback release) {
+    stack *new = (stack *) malloc (sizeof (stack));
     
-    assert(new != NULL);
-
+    assert (new != NULL);
+    
     new->head = NULL;
     new->count = 0;
+    new->release = release;
     
     return new;
 }
 
-void push(Stack * stack, const void * data) {
-    assert(stack != NULL);
+void
+stack_push (stack *stack, const void *data) {
+    assert (stack != NULL);
     
-    Node * new = createNode(data);
+    node *new = node_init (data);
     
-    if (stack->head != NULL) {
+    if (stack->head != NULL)
         new->next = stack->head;
-    }
     
     stack->head = new;
     stack->count += 1;
 }
 
-void * pop(Stack * stack) {
-    assert(stack != NULL);
-
-    if (stack->head == NULL) return NULL;
+void *
+stack_pop (stack *stack) {
+    assert (stack != NULL);
     
-    Node * aux = stack->head;
+    if (stack->head == NULL)
+        return NULL;
     
-    void * data = (void *)aux->data;
+    node *aux = stack->head;
+    
+    void *data = (void *) aux->data;
+    
+    if (stack->release != NULL)
+        stack->release(data);
     
     stack->head = stack->head->next;
     
@@ -91,31 +100,42 @@ void * pop(Stack * stack) {
     return data;
 }
 
-void * top(Stack * stack) {
-    assert(stack != NULL);
-
-    if (stack->head == NULL) return NULL;
+void *
+stack_top (stack *stack) {
+    assert (stack != NULL);
+    
+    if (stack->head == NULL)
+        return NULL;
     
     return (void *)stack->head->data;
 }
 
-long stackCount(Stack * stack) {
-    assert(stack != NULL);
-
-    if (stack->head == NULL) return 0;
+long
+stack_size (stack *stack) {
+    assert (stack != NULL);
+    
+    if (stack->head == NULL)
+        return 0;
     
     return stack->count;
 }
 
-int emptyStack(Stack * stack) {
-    assert(stack != NULL);
+int
+stack_is_empty (stack *stack) {
+    assert (stack != NULL);
+    
     return stack->count == 0;
 }
 
-void removeAllStack(Stack * stack) {
-    assert(stack != NULL);
+void
+stack_release (stack **stack) {
+    assert (stack != NULL);
+    assert ((*stack) != NULL);
     
-    while (stack->head != NULL) {
-        pop(stack);
-    }    
+    while ((*stack)->head != NULL) {
+        stack_pop (*stack);
+    }
+    
+    free(*stack);
+    *stack = NULL;
 }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D429F0C8212A49F600651357 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = D429F0C7212A49F600651357 /* main.c */; };
-		D429F0D0212A4A0300651357 /* Stack.c in Sources */ = {isa = PBXBuildFile; fileRef = D429F0CF212A4A0300651357 /* Stack.c */; };
+		D4D7848421F66DD1003B9FEA /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = D4D7848221F66DD0003B9FEA /* stack.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		D429F0C4212A49F600651357 /* Stack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Stack; sourceTree = BUILT_PRODUCTS_DIR; };
 		D429F0C7212A49F600651357 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		D429F0CE212A4A0300651357 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
-		D429F0CF212A4A0300651357 /* Stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Stack.c; sourceTree = "<group>"; };
+		D4D7848221F66DD0003B9FEA /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stack.c; sourceTree = "<group>"; };
+		D4D7848321F66DD0003B9FEA /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				D429F0C7212A49F600651357 /* main.c */,
-				D429F0CF212A4A0300651357 /* Stack.c */,
-				D429F0CE212A4A0300651357 /* Stack.h */,
+				D4D7848321F66DD0003B9FEA /* stack.h */,
+				D4D7848221F66DD0003B9FEA /* stack.c */,
 			);
 			path = Stack;
 			sourceTree = "<group>";
@@ -123,7 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D429F0D0212A4A0300651357 /* Stack.c in Sources */,
+				D4D7848421F66DD1003B9FEA /* stack.c in Sources */,
 				D429F0C8212A49F600651357 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
