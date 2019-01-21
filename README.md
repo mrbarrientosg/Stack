@@ -10,18 +10,19 @@ Deben tener instalado Xcode para poder compilar el archivo .xcodeproj
 
 #### Windows y Linux:
 
-Pueden usar cualquier IDE, y deben agregar los archivos Stack.h y Stack.c a su proyecto.
+Pueden usar cualquier IDE, y deben agregar los archivos stack.h y stack.c a su proyecto.
 
 ## Ejemplo
 
 ```C
 #include <stdio.h>
 #include <stdlib.h>
-#include "Stack.h"
+#include "stack.h"
 
 int main() {
     
-    Stack * test = createStack(); // Se crea una nueva pila.
+//    stack *test = stack_init (NULL);
+    stack *test = stack_init (free); // Se crea una nueva pila.
     
     /**
      Se puebla con valores de 0...9
@@ -31,26 +32,25 @@ int main() {
     int i;
     
     for (i = 0; i < 10; i++) {
-        data = (int *)malloc(sizeof(int));
+        data = (int *) malloc (sizeof (int));
         *data = i;
-        push(test, data);
+        stack_push (test, data);
     }
     
-    while (emptyStack(test) == 0) {
-        printf("%d\n", *(int *)top(test));
-        free(pop(test));
+    while (stack_is_empty (test) == 0) {
+        printf ("%d\n", *(int *) stack_top (test));
+        stack_pop (test);
     }
     
     // Se libera memoria del stack.
-    free(test);
+    stack_release (&test);
     
     return 0;
 }
-
 ```
 ## Autor
 
-* **Matias Barrientos** - [mrbarrientosg](https://github.com/mrbarrientosg)
+* **Matias Barrientos G** - [mrbarrientosg](https://github.com/mrbarrientosg)
 
 ## Licencia
 
